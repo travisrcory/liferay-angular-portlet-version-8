@@ -10,14 +10,14 @@ import { DynamicLoader } from './app/dynamic.loader';
 import LiferayParams from './types/LiferayParams'
 
 /**
- * This is the actual method that initializes the portlet. It is invoked by the 
+ * This is the actual method that initializes the portlet. It is invoked by the
  * "bootstrap" module.
- * 
- * @param  {LiferayParams} params an object with values of interest to the 
+ *
+ * @param  {LiferayParams} params an object with values of interest to the
  * 									portlet
  */
 export default function(params: LiferayParams) {
-	
+
 	platformBrowserDynamic()
 		.bootstrapModule(AppModule)
 		.then((injector: any) => {
@@ -29,5 +29,5 @@ export default function(params: LiferayParams) {
 
 			dynamicLoader.loadComponent(AppComponent, params);
 		});
-	
+
 }
