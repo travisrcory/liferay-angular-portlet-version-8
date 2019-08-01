@@ -1,13 +1,18 @@
 {
   "name": "my-dream-app",
-  "version": "0.0.0",
+	"version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "liferay-build": "tsc && npm run copy-assets && liferay-npm-bundler",
+		"copy-assets": "lnbs-copy-assets",
+    "translate": "lnbs-translate",
+    "deploy": "npm run liferay-build && lnbs-deploy",
+    "liferay-start": "lnbs-start"
   },
   "private": true,
   "dependencies": {
@@ -28,10 +33,11 @@
     "@angular/cli": "~8.0.2",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "core-js": "3.1.4",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -39,9 +45,19 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "liferay-npm-build-support": "2.11.0",
+    "liferay-npm-bundler": "2.11.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
-  }
+  },
+  "portlet": {
+    "com.liferay.portlet.display-category": "category.sample",
+    "com.liferay.portlet.instanceable": true,
+    "javax.portlet.name": "my_dream_app",
+		"javax.portlet.security-role-ref": "power-user,user",
+		"javax.portlet.resource-bundle": "content.Language"
+  },
+  "main": "main.js"
 }

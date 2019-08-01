@@ -3,7 +3,7 @@
 		"output-dir": "dist",
 		"features": {
 			"js-extender": true,
-			"web-context": "/my-project",
+			"web-context": "/my-dream-app",
 			"localization": "features/localization/Language",
 			"configuration": "features/configuration.json"
 		}
